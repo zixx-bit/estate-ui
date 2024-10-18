@@ -32,7 +32,7 @@ function SearchBar () {
       placeholder='Min Price'/>
       <input
         type='number'
-        name='maxPrice'
+        name='maxPrice' 
         min={0}
         max={1000000}
         placeholder='Max price'
