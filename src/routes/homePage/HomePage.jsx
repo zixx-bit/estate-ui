@@ -24,7 +24,6 @@ const homePage = () => {
         <h1>2000+</h1>
         <h2>Peoperty ready</h2>
         </div>
-
         </div>
         </div>
     </div>

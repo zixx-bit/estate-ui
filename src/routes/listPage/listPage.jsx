@@ -1,9 +1,9 @@
-import './listPage.scss'
+import './listPage.scss';
 
-function listPage(){
+function ListPage(){
     return (
         <div className="listPage">ListPage</div>
     )
 }
 
-export default listPage
+export default ListPage
