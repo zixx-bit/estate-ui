@@ -1,8 +1,10 @@
 .listPage{
     display: flex;
+    height: 100%;
     
-    .listConatiner{
+    .listContainer{
         flex: 3;
+
         .wrapper{
             padding-right: 50px;
         }
