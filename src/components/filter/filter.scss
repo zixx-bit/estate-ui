@@ -29,5 +29,17 @@
         display: flex;
         justify-content: space-between;
         gap: 20px;
+        button{
+            width: 100px;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #fece51;
+            
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
     }
 }

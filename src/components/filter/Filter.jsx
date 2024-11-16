@@ -65,9 +65,14 @@ function Filter() {
       <option value="">House</option>
       </select>
     </div>
+  
+      <button className="search">
+        <img src="/search.png"></img>
+      </button>
+  
   </div>
 </div>
-  )
+  );
 }
 
 export default Filter
