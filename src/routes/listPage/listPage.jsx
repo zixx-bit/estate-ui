@@ -8,15 +8,13 @@ function ListPage(){
         <div className="listPage">
             <div className = "listContainer">
                 <div className='wrapper'>
-                    <div className='filter'>
-                      <Filter/> 
-                    </div>
-                     <div className='card'>   
+                     <Filter/> 
+                  
                      {data.map(item=>(
                         <Card key={item.id} item = {item}/>
                      ))}
                     {/* <Card/> */}
-                    </div>
+                    
                 </div>
             </div>
             <div className = "mapContainer">Map</div>
