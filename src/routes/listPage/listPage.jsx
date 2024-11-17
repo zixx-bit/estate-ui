@@ -8,10 +8,9 @@ function ListPage(){
         <div className="listPage">
             <div className = "listContainer">
                 <div className='wrapper'>
-                     <Filter/> 
-                  
+                     <Filter/>                   
                      {data.map(item=>(
-                        <Card key={item.id} item = {item}/>
+                        <Card key={item.id} item={item}/>
                      ))}
                     {/* <Card/> */}
                     
