@@ -29,7 +29,8 @@ $nunito-font: 'Nunito', 'Arial', 'Helvetica', sans-serif;
     }
     .content{
     //    background-color: red; 
-       flex: 1;
+    //    flex: 1;
+    height: calc(100vh - 100px);
     }
 
 
