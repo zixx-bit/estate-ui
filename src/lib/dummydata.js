@@ -1,4 +1,4 @@
-export const listData = [
+export const   listData = [
     {
       id: 1,
       title: "A Great Apartment Next to the Beach!",

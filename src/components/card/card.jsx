@@ -20,12 +20,12 @@ function Card({property}){
             <div className="features">
               <div className="feature">
               <img src="/bed.png" alt=""></img>
-              <span>{property.bedrooms} bedroom</span>
+              <span>{property.bedroom} bedroom</span>
               </div>
              
               <div className="feature">
               <img src="/bath.png" alt=""></img>
-              <span>{property.bathrooms} bathroom</span>
+              <span>{property.bathroom} bathroom</span>
               </div>
              </div>
 
