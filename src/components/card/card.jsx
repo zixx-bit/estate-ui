@@ -15,7 +15,7 @@ function Card({property}){
           <img src="/pin.png" alt=""></img>
            <span>{property.address}</span> 
         </p>
-        <p className="price">${property.price}</p>
+        <p className="price">Ksh {property.price}/month</p>
           <div className="bottom">
             <div className="features">
               <div className="feature">
