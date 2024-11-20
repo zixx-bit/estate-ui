@@ -3,6 +3,7 @@
     gap: 20px;
     border-radius: 10px;
     padding: 10px;
+    margin-left: 5px;
     // background-color: #EEEEFF;
     // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     
@@ -38,7 +39,9 @@
         .title {
             font-size: 20px;
             font-weight: 600;
-            color: #444;
+            // color: #444;
+            // color:#5F9EA0;
+            color: #2774AE;	
             transition: all 0.4s ease;    
             
             &:hover {
