@@ -13,6 +13,7 @@ const Pin = (location) => {
             <span className="bed">{location.bedroom}</span>
             <b>Ksh{location.price}</b>
           </div>
+
         </div>
       </Popup>
     </Marker>
