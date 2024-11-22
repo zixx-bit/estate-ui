@@ -2,18 +2,19 @@ import { Marker, Popup } from "react-leaflet"
 import "./pin.scss"
 import { Link } from "react-router-dom"
 
-const Pin = (location) => {
+function Pin ({propertyItem}) {
   return (        
-    <Marker position={[location.latitude, location.longitude]}>
+    <Marker position={[propertyItem.latitude, propertyItem.longitude]}>
       <Popup>
         <div className="popupContainer">
-          <img ></img>
+        <Link to={`/${propertyItem.id}`}>
+          <img src={propertyItem.images}/>
+          </Link>
           <div className="textContainer">
-            <Link to={`/${location.id}`}>{location.title}</Link>
-            <span className="bed">{location.bedroom}</span>
-            <b>Ksh{location.price}</b>
+            <Link to={`/${propertyItem.id}`}>{propertyItem.title}</Link>
+            <span className="bed">{propertyItem.bedroom} bedroom</span>
+            <b>Ksh {propertyItem.price}</b>
           </div>
-
         </div>
       </Popup>
     </Marker>
