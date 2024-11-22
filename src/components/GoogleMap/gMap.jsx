@@ -1,10 +1,28 @@
 import React from 'react'
-import { APIProvider, Map } from '@vis.gl/react-google-maps';
+import { AdvancedMarker, APIProvider, Map, Pin } from '@vis.gl/react-google-maps';
+import "./Gmap.scss"
+import GooglePin from '../Googlepin/GooglePin';
 
-function gMap(){
+function Gmap({data}){
   return (
-    <div>gMap</div>
+    <div className='map'>
+  <APIProvider apiKey="AIzaSyDiq9VCzV0okX2lQhvEsMLUTC92-thsQ48" >
+    <Map
+       defaultZoom={7}
+       defaultCenter={ { lat:  51.5074, lng: -0.1278 } }
+       mapId='DEMO_MAP_ID'
+
+    //   defaultZoom={3}
+      gestureHandling={'greedy'}
+    //   disableDefaultUI={true}
+    />
+   
+    <GooglePin  data={data} />
+    </APIProvider>
+
+  </div>
+
   )
 }
 
-export default gMap
+export default Gmap

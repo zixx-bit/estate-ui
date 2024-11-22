@@ -2,6 +2,7 @@ import './listPage.scss';
 import { listData } from '../../lib/dummydata';
 import Filter from '../../components/filter/Filter';
 import Card from '../../components/card/card';
+import Gmap from '../../components/GoogleMap/Gmap';
 import Map from '../../components/map/Map';
 function ListPage(){
     const data = listData
@@ -18,7 +19,8 @@ function ListPage(){
                 </div>
             </div>
             <div className="mapContainer">
-            <Map propertyData={data}/>
+            <Gmap data={data}/>
+            {/* <Map propertyData={data}/> */}
             </div>
         </div>
     )
