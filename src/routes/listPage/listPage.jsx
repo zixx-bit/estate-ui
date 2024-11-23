@@ -19,8 +19,12 @@ function ListPage(){
                 </div>
             </div>
             <div className="mapContainer">
-            <Gmap data={data}/>
             {/* <Map propertyData={data}/> */}
+            <Gmap data={data}/>
+            {/* red color shades #E0115F */}
+            {/* blue color shades #4682B4 */}
+
+
             </div>
         </div>
     )
