@@ -11,7 +11,7 @@ function Gmap({data}){
     <div className='map'>
   <APIProvider apiKey="AIzaSyDiq9VCzV0okX2lQhvEsMLUTC92-thsQ48" >
     <Map
-       defaultZoom={7}
+       defaultZoom={6}
        defaultCenter={defaultCenter}
        mapId='DEMO_MAP_ID'
        onClick={() => setSelected(defaultCenter)}
