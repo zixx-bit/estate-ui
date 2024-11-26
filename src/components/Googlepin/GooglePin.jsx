@@ -17,7 +17,7 @@ const GooglePin = ({data}) => {
         <AdvancedMarker
           key={location.id}
           position={ {lat: location.latitude, lng:location.longitude}}>
-        <Pin background={'#E0115F '} glyphColor={'#fff'} borderColor={'#fff'} />
+        <Pin background={'red '} glyphColor={'#fff'} borderColor={'#fff'} />
         </AdvancedMarker>
       ))}
 </div>
