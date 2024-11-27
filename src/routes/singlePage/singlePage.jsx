@@ -2,7 +2,12 @@ import "./singlePage.scss";
 
 function singlePage() {
   return (
-    <div>singlePage</div>
+    <div className="singlePage">
+      <div className="details">
+      </div>
+      <div className="features">
+      </div>
+    </div>
   )
 }
 
