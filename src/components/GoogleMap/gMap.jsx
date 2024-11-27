@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import dotenv from 'dotenv';
 import {APIProvider, Map} from '@vis.gl/react-google-maps';
 import "./Gmap.scss"
 import GooglePin from '../Googlepin/GooglePin';
-dotenv.config()
-
 
 function Gmap({data}){
   const [selected, setSelected] = useState(null);
-  const defaultCenter= {  lat:  52.4797, lng: -1.90269  }
-  const gKey = process.env.GOOGLE_MAPS_API_KEY
-  // const Key = process.env.GOOGLE_MAPS_API_KEY
+  const defaultCenter= {lat:  52.4797, lng: -1.90269}
+  const gKey = "AIzaSyDiq9VCzV0okX2lQhvEsMLUTC92-thsQ48";
 
   return (
     <div className='map'>
@@ -21,10 +17,8 @@ function Gmap({data}){
        mapId='DEMO_MAP_ID'
        onClick={() => setSelected(defaultCenter)}
       gestureHandling={'greedy'}
-      // disableDefaultUI={true}
-    />
-    
-   
+     // disableDefaultUI={true}
+    />  
     <GooglePin  data={data} />
     </APIProvider>
 
