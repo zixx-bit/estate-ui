@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Slider = () => {
+const Slider = ({images}) => {
   return (
     <div>Slider</div>
   )
