@@ -2,7 +2,10 @@ import React from 'react'
 
 const Slider = ({images}) => {
   return (
-    <div>Slider</div>
+    <div className='slider'>
+    <div className='bigImage'></div>
+      
+    </div>
   )
 }
 
