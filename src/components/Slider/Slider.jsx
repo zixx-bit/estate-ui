@@ -21,9 +21,7 @@ const Slider = ({images}) => {
       }
     }
   }
-  
-
-       useEffect(() => {
+      useEffect(() => {
             const handleEsc = (event) => {
          if (event.key === 'Escape') {
           setImageIndex (null)
