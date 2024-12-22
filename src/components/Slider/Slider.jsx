@@ -3,17 +3,18 @@ import "./slider.scss";
 
 const Slider = ({images}) => {
   const[imageIndex, setImageIndex] = useState (null);
+  const[arrowDisplay, setArrowDisplay] = useState (null);
 
   const changeSlide = (direction) => {
     if (direction === "left") {
       if (imageIndex === 0) {
-        setImageIndex(images.length - 1);
+        // setImageIndex(images.length - 1);
       } else {
         setImageIndex(imageIndex - 1);
         
-      }
-      
-    } else {
+      }      
+    } 
+    else {
       if (imageIndex === images.length - 1) {
         setImageIndex(0);
       } else {
@@ -21,21 +22,34 @@ const Slider = ({images}) => {
       }
     }
   }
-      useEffect(() => {
-            const handleEsc = (event) => {
-         if (event.key === 'Escape') {
-          setImageIndex (null)
-        }
-      };
-      window.addEventListener('keydown', handleEsc);
-  
-      return () => {
-        window.removeEventListener('keydown', handleEsc);
-      };
-    }, []);
-  
+    
+    function handleEsc (event){
+      if (event.key === 'Escape') {
+       setImageIndex (null)
+     }
+   }
    
-  
+   window.addEventListener('keydown', handleEsc);
+
+   
+   function nextKey (event){
+    if (event.key === 'ArrowRight') {
+     changeSlide("right")
+   }
+ }
+ 
+ window.addEventListener('keydown', nextKey);
+
+ function prevKey (event){
+  if (event.key === 'ArrowLeft') {
+   changeSlide("left")
+ }
+}
+
+window.addEventListener('keydown', prevKey);
+
+
+   
 
   return (
      <div className='slider'>
