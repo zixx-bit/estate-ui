@@ -4,11 +4,11 @@ import "./slider.scss";
 const Slider = ({images}) => {
   const[imageIndex, setImageIndex] = useState (null);
   const[arrowDisplay, setArrowDisplay] = useState (null);
-
+// change slide function
   const changeSlide = (direction) => {
     if (direction === "left") {
       if (imageIndex === 0) {
-        // setImageIndex(images.length - 1);
+// setImageIndex(images.length - 1);
       } else {
         setImageIndex(imageIndex - 1);
         
@@ -22,24 +22,23 @@ const Slider = ({images}) => {
       }
     }
   }
-    
+// handle esc button function
     function handleEsc (event){
       if (event.key === 'Escape') {
        setImageIndex (null)
      }
-   }
-   
+   }  
    window.addEventListener('keydown', handleEsc);
 
-   
+// function when next key is pressed on the keyboard 
    function nextKey (event){
     if (event.key === 'ArrowRight') {
      changeSlide("right")
    }
- }
- 
+ } 
  window.addEventListener('keydown', nextKey);
 
+// function when previous key is pressed on the keyboard
  function prevKey (event){
   if (event.key === 'ArrowLeft') {
    changeSlide("left")
