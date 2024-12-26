@@ -1,8 +1,7 @@
 import Slider from "../../components/Slider/Slider";
 import "./singlePage.scss";
 import { singlePostData, userData } from "../../lib/dummydata";
-import { Map } from "leaflet";
-
+import Map from "../../components/map/Map"
 function singlePage() {
   return (
     <div className="singlePage">
@@ -35,7 +34,18 @@ function singlePage() {
         <p className="title">Nearby places</p>
         <div className="listHorizontal"></div>
         <p className="title">Location</p>
-        <div className="mapContainer">map</div>
+        {/* <div className="mapContainer"><Map items ={[singlePostData.latitude, singlePostData.longitude ]}/></div> */}
+        <div className="buttons">
+          <button>
+            <img src="/chat.png"/>
+            Send a message
+          </button>
+          <button>
+            <img src="/save.png"/>
+            Save the place
+          </button>
+        </div>
+
 
 
       </div>
