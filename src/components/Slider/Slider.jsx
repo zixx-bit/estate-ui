@@ -22,7 +22,7 @@ const Slider = ({images}) => {
       }
     }
   }
-// handle esc button function
+// handle esc button function when esc button is pressed on the keyboard
     function handleEsc (event){
       if (event.key === 'Escape') {
        setImageIndex (null)
@@ -61,7 +61,7 @@ window.addEventListener('keydown', prevKey);
     </div>
   )}
     <div className='bigImage'>
-      <img src={images[0]} alt='' onClick={() => setImageIndex(2) }/>
+      <img src={images[0]} alt='' onClick={() => setImageIndex(0)}/>
     </div>
     <div className='smallImages'>
       {images.slice(1).map((image, index)=>(<img src={image} alt='' key={index}

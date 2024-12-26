@@ -1,6 +1,7 @@
 import Slider from "../../components/Slider/Slider";
 import "./singlePage.scss";
 import { singlePostData, userData } from "../../lib/dummydata";
+import { Map } from "leaflet";
 
 function singlePage() {
   return (
@@ -26,7 +27,18 @@ function singlePage() {
       </div>
       </div>
       <div className="features">
-      <div className="wrapper"></div>
+      <div className="wrapper">
+        <p className="title">General</p>
+        <div className="listVertical"></div>
+        <p className="title">Sizes</p>
+        <div className="sizes"></div>
+        <p className="title">Nearby places</p>
+        <div className="listHorizontal"></div>
+        <p className="title">Location</p>
+        <div className="mapContainer">map</div>
+
+
+      </div>
 
       </div>
     </div>
