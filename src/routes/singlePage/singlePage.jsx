@@ -28,9 +28,35 @@ function singlePage() {
       <div className="features">
       <div className="wrapper">
         <p className="title">General</p>
-        <div className="listVertical"></div>
+        <div className="listVertical">
+          <div className="feature">
+          <img src="/utility.png"/>
+              <div className="featuretext">
+                <span>Utilities</span>
+                <p>Renter is responsible</p>
+              </div>
+          </div>
+          <div className="feature">
+          <img src="/pet.png"/>
+              <div className="featuretext">
+                <span>Pet Policy</span>
+                <p>Pets allowed</p>
+              </div>
+          </div>
+          <div className="feature">
+          <img src="/fee.png"/>
+              <div className="featuretext">
+                <span>Property Fees</span>
+                <p>Must have 3x the rent in total household income</p>
+              </div>
+          </div>
+        </div>
         <p className="title">Sizes</p>
-        <div className="sizes"></div>
+        <div className="sizes">
+          <div className="size">
+          
+          </div>
+        </div>
         <p className="title">Nearby places</p>
         <div className="listHorizontal"></div>
         <p className="title">Location</p>

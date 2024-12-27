@@ -54,9 +54,9 @@ window.addEventListener('keydown', prevKey);
      <div className='slider'>
     {imageIndex !==null && ( 
     <div className='fullSlider'>
-      <div className='arrow' onClick={() => changeSlide("left")}><img src='/arrow.png'></img></div>
+      <div className='arrow' onClick={() => changeSlide("left")}><img src='/white-arrow .jpg' className='leftArrow'></img></div>
       <div className='imgContainer'><img src={images[imageIndex]}></img></div>
-      <div className='arrow' onClick={() => changeSlide("right")}> <img src='/arrow.png' className='rightArrow'></img></div>
+      <div className='arrow' onClick={() => changeSlide("right")}> <img src='/white-arrow .jpg' className='rightArrow'></img></div>
       <div className='close' onClick={() => setImageIndex(null) }>X</div>
     </div>
   )}
