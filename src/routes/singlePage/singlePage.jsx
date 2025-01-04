@@ -45,7 +45,7 @@ function singlePage() {
           </div>
           <div className="feature">
           <img src="/fee.png"/>
-              <div className="featuretext">
+              <div className="featureText">
                 <span>Property Fees</span>
                 <p>Must have 3x the rent in total household income</p>
               </div>
@@ -54,7 +54,16 @@ function singlePage() {
         <p className="title">Sizes</p>
         <div className="sizes">
           <div className="size">
-          
+          <img src="/size.png" alt=""/> 
+          <span>80sqft</span>         
+          </div>
+          <div className="size">
+            <img src="/bed.png"/>
+            <span>2 beds</span>            
+          </div>
+          <div className="size">
+          <img src="/bath"/>
+          <span>1 bathroom</span>
           </div>
         </div>
         <p className="title">Nearby places</p>
