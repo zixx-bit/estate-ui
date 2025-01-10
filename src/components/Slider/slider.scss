@@ -1,10 +1,16 @@
+@import "../../responsive.scss";
+
 .slider{
     width: 100%;
     height: 350px;
     display: flex;
     gap: 20px;
+    @include sm{
+        display: flex;
+        flex-direction: column;
+    }
     .fullSlider{
-        // z-index: 0;
+        z-index: 9999;
         position: absolute;
         width: 100%;
         height: 100vh;
@@ -18,7 +24,7 @@
 
         .arrow{
             display: flex;
-            flex: 1.5;
+            flex: 1;
             flex-shrink: 2;
             width: 20px;
             height: 100%;        
@@ -45,7 +51,7 @@
             }
         }
         .imgContainer{
-            flex: 8.5;
+            flex: 9;
             z-index: 3;
             img{
                 width: 100%;
@@ -88,9 +94,23 @@
 
     .bigImage{
          flex: 3;
+        @include sm{
+
+        } 
      
     }
-    .smallImages{
+  
+    .smallImagesContainer {
+      
+        @include sm{
+            // height: 60px;
+            width: 300px;
+            align-items: center;
+        }
+
+    }
+
+    .smallImages {
         flex: 1;
         height: 100px;
         display: flex;
@@ -98,5 +118,19 @@
         justify-content: space-between;
         gap: 20px;
         align-items: center;
+        
+        @include sm{
+            flex: none;
+            display: flex;           
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding:  5px;     
+            height: 60px;
+            width: 100%;      
+            gap: 10px;
+            overflow-x: scroll;
+            
+        }
     }
 }

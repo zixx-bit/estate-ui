@@ -58,6 +58,39 @@ nav{
             padding: 12px 24px;
             margin: 20px;
         }
+        .user{
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            img{
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 10px;
+            }
+            .profile{
+                padding: 12px 24px;
+                background-color: #fece51;
+                cursor: pointer;
+                border: none;
+                border-radius: 5px;
+                position: relative;
+                .notification{
+                    top: -8px;
+                    right: -8px;
+                    position: absolute;
+                    background-color:red;
+                    color: #fcf5f3;
+                    border-radius: 50%;
+                    width: 26px;
+                    height: 26px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
         .register{
             background-color: #fece51;
         }

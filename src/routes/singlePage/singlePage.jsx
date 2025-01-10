@@ -2,6 +2,9 @@ import Slider from "../../components/Slider/Slider";
 import "./singlePage.scss";
 import { singlePostData, userData } from "../../lib/dummydata";
 import Map from "../../components/map/Map"
+import Gmap from "../../components/GoogleMap/Gmap"
+
+
 function singlePage() {
   return (
     <div className="singlePage">
@@ -24,7 +27,9 @@ function singlePage() {
         <div className="bottom">{singlePostData.description}</div>
       </div>
       </div>
+
       </div>
+      {/* features section */}
       <div className="features">
       <div className="wrapper">
         <p className="title">General</p>
@@ -51,7 +56,8 @@ function singlePage() {
               </div>
           </div>
         </div>
-        <p className="title">Sizes</p>
+        {/* sizes */}
+        <p className="title">Sizes</p>        
         <div className="sizes">
           <div className="size">
           <img src="/size.png" alt=""/> 
@@ -62,28 +68,50 @@ function singlePage() {
             <span>2 beds</span>            
           </div>
           <div className="size">
-          <img src="/bath"/>
+          <img src="/bath.png"/>
           <span>1 bathroom</span>
           </div>
         </div>
+        {/* Nearby places */}
         <p className="title">Nearby places</p>
-        <div className="listHorizontal"></div>
+        <div className="listHorizontal">          
+            <div className="feature">
+            <img src="/school.png"/>
+              <div className="featureText">
+                <span>School:</span>
+                <p>250m away</p>
+              </div>            
+            </div>
+            <div className="feature">
+            <img src="/bus.png" alt=""/>
+            <div className="featureText">
+              <span>Bus Stop:</span>
+              <p>250m away</p>
+            </div>
+            </div>
+            <div className="feature">
+            <img src="restaurant.png" alt=""/>
+            <div className="featureText">
+              <span>Restaurant:</span>
+              <p>200m away</p>
+            </div>
+            </div>          
+        </div>
         <p className="title">Location</p>
-        {/* <div className="mapContainer"><Map items ={[singlePostData.latitude, singlePostData.longitude ]}/></div> */}
+        <div className="mapContainer">
+          <Map propertyData={[singlePostData]}/>
+        </div>
         <div className="buttons">
-          <button>
+          <button className="firstButton">
             <img src="/chat.png"/>
             Send a message
           </button>
-          <button>
+          <button className="secondButton">
             <img src="/save.png"/>
-            Save the place
+            Save place
           </button>
         </div>
-
-
-
-      </div>
+        </div>
 
       </div>
     </div>

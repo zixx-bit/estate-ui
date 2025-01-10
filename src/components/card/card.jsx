@@ -30,10 +30,10 @@ function Card({property}){
              </div>
 
               <div className="icons">
-              <div className="icon">
+              <div className="icon save">
                 <img src="/save.png" alt=""></img>
               </div> 
-              <div className="icon">
+              <div className="icon chat" >
                 <img src="/chat.png" alt=""></img>
               </div>           
               </div>                        
