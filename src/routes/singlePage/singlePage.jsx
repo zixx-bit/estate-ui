@@ -15,7 +15,7 @@ function singlePage() {
           <div className="post">
             <h1>{singlePostData.title}</h1>
               <div className="address">
-                <img src="/pin.png" alt=""/><span>{singlePostData.address}</span>
+                <img src="/pin.png" alt=""/><span className="text-3xl font-bold underline">{singlePostData.address}</span>
               </div>
               <div className="price">Ksh {singlePostData.price}</div>
             </div>
@@ -27,7 +27,6 @@ function singlePage() {
         <div className="bottom">{singlePostData.description}</div>
       </div>
       </div>
-
       </div>
       {/* features section */}
       <div className="features">
@@ -36,14 +35,14 @@ function singlePage() {
         <div className="listVertical">
           <div className="feature">
           <img src="/utility.png"/>
-              <div className="featuretext">
+              <div className="featureText">
                 <span>Utilities</span>
                 <p>Renter is responsible</p>
               </div>
           </div>
           <div className="feature">
           <img src="/pet.png"/>
-              <div className="featuretext">
+              <div className="featureText">
                 <span>Pet Policy</span>
                 <p>Pets allowed</p>
               </div>

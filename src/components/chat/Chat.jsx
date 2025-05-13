@@ -116,7 +116,9 @@ const Chat = () => {
           </div>
           <div className='bottom'>
             <textarea></textarea>
-            <button>Send</button>
+            <button>Send 
+            <span><img src="/send1.png"/></span>
+            </button>
           </div>
         </div>  
         )}

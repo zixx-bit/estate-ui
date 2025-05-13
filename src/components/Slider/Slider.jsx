@@ -63,14 +63,14 @@ setImageIndex(images.length - 1);
     <div className='bigImage'>
       <img src={images[0]} alt='' onClick={() => setImageIndex(0)}/>
     </div>
-    <div className='smallImagesContainer'>
+    
     <div className='smallImages'>
       {images.slice(1).map((image, index)=>(<img src={image} alt='' key={index}
         onClick={() => setImageIndex(index + 1)}
       />)) }
     </div>  
 
-    </div>
+  
    
   </div>
   )

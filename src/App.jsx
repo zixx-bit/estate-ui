@@ -5,6 +5,10 @@ import ListPage from './routes/listPage/listPage.jsx';
 import SinglePage from './routes/singlePage/SinglePage.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import ProfilePage from './routes/profilePage/ProfilePage.jsx';
+import Login from './routes/login/login.jsx';
+import Register from './routes/register/register.jsx';
+
+
 // import { path } from 'express/lib/application.js';
 
 function App() {
@@ -22,6 +26,14 @@ function App() {
       {
         path: '/list',
         element: <ListPage/>,
+      },
+      {
+        path:'/login',
+        element: <Login/>,
+      },
+      {
+        path: '/register',
+        element: <Register/>
       },
       {
         path: "/:id",

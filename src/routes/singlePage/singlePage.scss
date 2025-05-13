@@ -3,6 +3,7 @@
 .singlePage{
     display: flex;
     height: 100%;
+    
     padding: 10px;
     @include md{
         flex-direction: column;
@@ -12,47 +13,62 @@
     @include sm{
         padding: 5px;
     }
-    .details{flex: 3;
+    .details{
+           flex: 3;
+           margin-right: 10px;
+        //    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
             height: 100%;
             overflow-y: scroll;
+            padding: 10px;
             @include md{
                 flex: none;
                 height: max-content;
             }
         .wrapper{
-            padding-right: 50px;
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+            // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
             @include md{
                 padding-right: 0px;
             }
-            @include sm{
-
-            }
+       
             .info{
-                margin-top: 50px;
+                margin-top: 10px;
                 .top{
                     display: flex;
                     justify-content: space-between;
+                    padding: 10px;
+                    // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
                      .post{
                         display: flex;
                         flex-direction: column;
-                        gap: 20px;
+                        gap: 3px;
                         h1{
                             font-weight: 600;
-                            background-color: #ccccee;
-                            padding: 20px;
-                            margin-right: 10px;
+                            // padding: 10px;
+                            // margin-right: 10px;
                             // width: max-content;
+                            // background-color: rgb(215, 228, 237);
                             border-radius: 10px;
-                            // color: #fff;
+                            color: #047dc3; 
+                            // #0a60c2;
+                            @include sm{
+                                padding: 5px;
+                                border-radius: 5px;
+                                font-size: 20px;
+                            }
                         }
                         .address{
                             display: flex;
                             gap: 5px;
-                            background-color: rgba(250, 207, 99, 0.438);
+                            background-color: rgba(252, 233, 186, 0.438);
                             border-radius: 5px;
                             padding: 5px;
                             align-items: center;
-                            color: #888;
+                            color: rgb(186, 136, 9);
+                            //  #888;
                             width: max-content;
                             font-size: 16px;
                             img{
@@ -62,11 +78,12 @@
 
                         }
                         .price{
-                           padding: 10px;
-                           background-color:#eeb4b4;
-                            // rgba(254, 205, 81, 0.438);
+                           padding: 6px;
+                           background-color:
+                        //    rgb(233, 232, 232);
+                            rgba(230, 211, 211, 0.438);
                            border-radius: 5px;
-                           color: #fff;
+                           color: #c25a5a;
                            font-weight: bolder;
                            width: max-content;
                            font-size: 20px;
@@ -75,13 +92,13 @@
                     }
                     .user{
                         display: flex;
-                        flex-direction: column;
+                        flex-direction: row;
                         justify-content: center;
                         align-items: center;
-                        background-color: rgba(254, 205, 81, 0.438);
-                        padding: 0px 50px ;
+                        // background-color: rgba(254, 205, 81, 0.438);
+                        // padding: 0px 50px ;
                         border-radius: 10px;
-                        gap: 20px;
+                        gap: 10px;
                         font-weight: 600;
                         img{
                             width: 50px;
@@ -89,14 +106,36 @@
                             object-fit: cover;
                             border-radius: 50%;
                         }
+                        .name{
+                            top: 10px;
+                            align-items: center;
+                        }
+
+                        @include sm{
+                            padding: 0px 30px ;
+                            gap: 10px;
+                            font-weight: 400;
+                            justify-content: safe;
+
+
+
+                            img{
+                                width: 40px;
+                                height: 40px;
+                            }
+                        }
                     }
                 }
                 .bottom{
-                    margin-top: 50px;
+                    margin-top: 20px;
+                    
+                    // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    padding: 20px;    
+                    background-color: #f1f0f0;
                     color: #555;
                     line-height: 20px;
-                    margin-bottom: 50px;
-                    background-color: #ddddf0;
+                    // margin-bottom: 50px;
+                    // box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
                     padding: 10px;
                     border-radius: 10px;
 
@@ -161,7 +200,8 @@
                 flex-direction: column;
                 gap: 20px;
                 padding: 20px 10px;
-                background-color: #ccccee;
+                background-color: #fff;
+                // color: #fff;
                 // #fff;
                 border-radius: 10px;
 
@@ -227,7 +267,7 @@
             .secondButton{
                 background-color: #ddddf0;
                 border: 1px solid #fff;
-                color: #555;
+                color: #8484e4;
 
             }
         }
