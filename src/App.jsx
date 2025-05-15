@@ -1,12 +1,13 @@
 import React from 'react';
 import HomePage from "./routes/homePage/HomePage.jsx";
-import Layout from "./routes/layout/layout.jsx";
+import {Layout, RequireAuth } from "./routes/layout/layout.jsx";
 import ListPage from './routes/listPage/listPage.jsx';
 import SinglePage from './routes/singlePage/SinglePage.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import ProfilePage from './routes/profilePage/ProfilePage.jsx';
 import Login from './routes/login/login.jsx';
 import Register from './routes/register/register.jsx';
+import ProfileUpdatePage from './routes/profileUpdatePage/ProfileUpdatePage.jsx';
 
 
 // import { path } from 'express/lib/application.js';
@@ -39,13 +40,24 @@ function App() {
         path: "/:id",
         element: <SinglePage/>,
       },
+      
+    ],
+  },
+//  routes and paths that require authentication 
+  {
+    path:"/",
+    element:<RequireAuth/>,
+    children:[
       {
         path: "/profile",
         element: <ProfilePage/>,
       },
-
+      {
+        path: "/profile/update",
+        element: <ProfileUpdatePage/>
+      }
     ],
-  },
+  }
 ]);
       // createRoutesFromElements(
       //   <Routes>

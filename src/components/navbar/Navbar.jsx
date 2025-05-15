@@ -1,10 +1,21 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.scss"
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 function Navbar() {
     const[open, setOpen]= useState(false);
     const user = true;
+
+    const {currentUser} = useContext(AuthContext);
+    // const navigate = useNavigate();
+
+    // useEffect(()=>{
+    //     if (!currentUser){
+    //          navigate("/login"); 
+    //         }
+
+    // }, [currentUser])
     return (
         <nav>
             <div className="left">
@@ -19,17 +30,17 @@ function Navbar() {
             </div>
 
             <div className="right">
-            {user ? (
+            {currentUser ? (
                 <div className="user">
-                  <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
-                  <span>John Doe</span>
+                  <img src={currentUser.avatar || "noavatar.jpg"}/>
+                  <span>{currentUser.username}</span>
                   <Link to="/profile" className="profile">
                   <div className="notification">3</div>
                   <span>Profile</span></Link>
                   </div>
                   ) : (<div>
-                    <a href="/">Sign in</a>
-                    <a href="/" className="register">Sign up</a>
+                    <a href="/login">Sign in</a>
+                    <a href="/register" className="register">Sign up</a>
                   </div>
                   )}
            

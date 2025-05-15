@@ -66,10 +66,10 @@
             color: #2774AE;	
             transition: all 0.4s ease;    
             
-            &:hover {
-                color: #000;
-                scale: 1.01;
-            }
+            // &:hover {
+            //     color: #000;
+            //     scale: 1.01;
+            // }
             @include sm{
                 font-size: 16px;
             }  
@@ -174,9 +174,9 @@
     }
 
 }
- .card:hover{
-    scale: 1.005;
-    transition: 100ms;
-    padding: 10px;
-    margin-left: 0px;
- }
+//  .card:hover{
+//     scale: 1.005;
+//     transition: 100ms;
+//     padding: 10px;
+//     margin-left: 0px;
+//  }

@@ -1,8 +1,12 @@
-import React from 'react'
-import "./homePage.scss"
-import SearchBar from '../../components/SearchBar/SearchBar'
+import React, { useContext } from 'react';
+import "./homePage.scss";
+import SearchBar from '../../components/SearchBar/SearchBar';
+import { AuthContext } from '../../context/AuthContext';
 
-const homePage = () => {
+const HomePage = () => { 
+  
+  const {currentUser} = useContext(AuthContext);
+ console.log(currentUser)
   return (
     <div className='homePage'>
     <div className='textContainer'>
@@ -34,4 +38,4 @@ const homePage = () => {
   )
 }
 
-export default homePage
+export default HomePage
