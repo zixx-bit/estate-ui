@@ -1,6 +1,22 @@
+@import "../../responsive.scss";
+
+@include sm{
+  .login{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    // background-color: red;
+    .imgContainer{
+      height: 50%;
+    }
+  }
+}
+
 .login {
   height: 100%;
   display: flex;
+
+}
 
   .formContainer {
     flex: 3;
@@ -73,4 +89,4 @@
       width: 100%;
     }
   }
-}
+

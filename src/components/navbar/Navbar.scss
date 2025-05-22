@@ -46,9 +46,27 @@ nav{
         flex: 2;
         display: flex;
         align-items: center;
+        flex-direction: row;
         justify-content: flex-end;
         background-color: #fcf5f3;
         height: 100%;
+        .signMenu{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            .login{
+                background-color: #1ca9c9;
+                color: #fcf5f3;
+                font-weight: bold;
+            }
+            .register{
+                font-weight: bold;
+            }
+            @include sm{
+                display: none ;
+            }
+        }
         
         @include md{
             background-color: transparent;
@@ -57,6 +75,7 @@ nav{
         a{
             padding: 12px 24px;
             margin: 20px;
+            border-radius: 5px;
         }
         .user{
             display: flex;

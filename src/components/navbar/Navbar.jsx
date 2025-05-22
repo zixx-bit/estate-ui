@@ -38,8 +38,8 @@ function Navbar() {
                   <div className="notification">3</div>
                   <span>Profile</span></Link>
                   </div>
-                  ) : (<div>
-                    <a href="/login">Sign in</a>
+                  ) : (<div className="signMenu">
+                    <a className="login" href="/login">Sign in</a>
                     <a href="/register" className="register">Sign up</a>
                   </div>
                   )}
