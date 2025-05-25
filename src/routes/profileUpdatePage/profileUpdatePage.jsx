@@ -8,12 +8,14 @@ import UploadWidget from "../../components/uploadWidget/UploadWidget";
 function ProfileUpdatePage() {
   const { currentUser, updateUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  // const [avatar, setAvatar] = useState(currentUser.avatar);
   const [avatar, setAvatar] = useState([]);
 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     const formData = new FormData(e.target);
 
     const { username, email, password } = Object.fromEntries(formData);
@@ -61,20 +63,22 @@ function ProfileUpdatePage() {
             <input id="password" name="password" type="password" />
           </div>
           <button>Update</button>
-          {error && <span>error</span>}
+          {error  && <span className="animated-message" style={{color:"red", backgroundColor: "#ffe6e6" }}>{error}</span>} 
+
+          {/* {error && <span>error</span>} */}
         </form>
       </div>
       <div className="sideContainer">
         <img src={avatar[0] || currentUser.avatar || "/noavatar.jpg"} alt="" className="avatar" />
         <UploadWidget
           uwConfig={{
-            cloudName: "lamadev",
+            cloudName: "michiradev",
             uploadPreset: "estate",
             multiple: false,
             maxImageFileSize: 2000000,
             folder: "avatars",
           }}
-          setState={setAvatar}
+          setAvatar={setAvatar}
         />
       </div>
     </div>

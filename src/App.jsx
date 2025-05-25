@@ -7,7 +7,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import ProfilePage from './routes/profilePage/ProfilePage.jsx';
 import Login from './routes/login/login.jsx';
 import Register from './routes/register/register.jsx';
-import ProfileUpdatePage from './routes/profileUpdatePage/ProfileUpdatePage.jsx';
+import ProfileUpdatePage from './routes/profileUpdatePage/profileUpdatePage.jsx';
 
 
 // import { path } from 'express/lib/application.js';
