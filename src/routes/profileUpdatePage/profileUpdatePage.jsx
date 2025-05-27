@@ -75,10 +75,10 @@ function ProfileUpdatePage() {
             cloudName: "michiradev",
             uploadPreset: "estate",
             multiple: false,
-            maxImageFileSize: 2000000,
+            maxImageFileSize: 2500000,
             folder: "avatars",
           }}
-          setAvatar={setAvatar}
+          setState={setAvatar}
         />
       </div>
     </div>

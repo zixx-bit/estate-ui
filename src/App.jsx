@@ -8,6 +8,8 @@ import ProfilePage from './routes/profilePage/ProfilePage.jsx';
 import Login from './routes/login/login.jsx';
 import Register from './routes/register/register.jsx';
 import ProfileUpdatePage from './routes/profileUpdatePage/profileUpdatePage.jsx';
+import NewPostPage from './routes/newPostPage/newPostPage.jsx';
+import { listPageLoader, singlePageLoader } from './lib/loaders.js';
 
 
 // import { path } from 'express/lib/application.js';
@@ -27,6 +29,7 @@ function App() {
       {
         path: '/list',
         element: <ListPage/>,
+        loader: listPageLoader,
       },
       {
         path:'/login',
@@ -39,6 +42,7 @@ function App() {
       {
         path: "/:id",
         element: <SinglePage/>,
+        loader: singlePageLoader,
       },
       
     ],
@@ -55,6 +59,10 @@ function App() {
       {
         path: "/profile/update",
         element: <ProfileUpdatePage/>
+      },
+      {
+        path: "/add",
+        element: <NewPostPage/>
       }
     ],
   }
