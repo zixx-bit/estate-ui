@@ -5,24 +5,29 @@ import { singlePostData } from '../../lib/dummydata';
 import "./card.scss";
 
 function Card({property}){
+  console.log(property)
   return (
     <div className="card">
     <div className="imageContainer">
     <Link to={ `/${property.id}` } >
-     <img src={property.images} alt=""/>      
+     <img src={property.images[0]} alt=""/>      
       </Link>
       </div>
       <div className="textContainer">
         <h2 className="title">
           <Link to={`/${property.id}`}>{property.title}</Link>
         </h2>
+
         <p className="address">
           <img src="/pin.png" alt=""></img>
            <span>{property.address}</span> 
         </p>
+
         <p className="price">Ksh {property.price}/month</p>
+
           <div className="bottom">
             <div className="features">
+
               <div className="feature">
               <img src="/bed.png" alt=""></img>
               <span>{property.bedroom} bedroom</span>
