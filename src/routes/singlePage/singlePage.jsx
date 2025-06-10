@@ -3,13 +3,36 @@ import "./singlePage.scss";
 import { singlePostData, userData } from "../../lib/dummydata";
 import Map from "../../components/map/Map"
 import Gmap from "../../components/GoogleMap/Gmap"
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import DOMPurify from "dompurify";
+import { useContext, useState } from "react"
+import apiRequest from "../../lib/apiRequest";
+import { AuthContext } from "../../context/AuthContext";
+// import { Navigate } from "react-router-dom";
 
 
 function SinglePage() {
   const post = useLoaderData();
-  console.log(post)
+  const[saved, setSaved] = useState(post.isSaved)
+  const {currentUser} = useContext(AuthContext)
+  const navigate = useNavigate()
+  const handleSave = async() =>{
+      // AFTER REACT 19 UPDATE TO USE OPTIMISTIC HOOK
+      setSaved((prev) => ! prev);
+    if (!currentUser) {
+      navigate("/login")
+    }
+    try {
+      await apiRequest.post("/users/save", {postId: post.id});
+      
+    } catch (error) {
+      console.log(error)
+      setSaved((prev) => ! prev);
+
+    }
+  }
+
+
   return (
     <div className="singlePage">
       <div className="details">
@@ -114,9 +137,10 @@ function SinglePage() {
             <img src="/chat.png"/>
             Send a message
           </button>
-          <button className="secondButton">
+          <button className="secondButton" onClick={handleSave}
+          style={{backgroundColor: saved ? "#fece51":"white", color: "#000"}}>
             <img src="/save.png"/>
-            Save place
+            { saved? "Place saved": "save the place"}
           </button>
         </div>
         </div>

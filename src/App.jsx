@@ -9,7 +9,7 @@ import Login from './routes/login/login.jsx';
 import Register from './routes/register/register.jsx';
 import ProfileUpdatePage from './routes/profileUpdatePage/profileUpdatePage.jsx';
 import NewPostPage from './routes/newPostPage/newPostPage.jsx';
-import { listPageLoader, singlePageLoader } from './lib/loaders.js';
+import { listPageLoader, singlePageLoader, profilePageLoader} from './lib/loaders.js';
 
 
 // import { path } from 'express/lib/application.js';
@@ -55,6 +55,7 @@ function App() {
       {
         path: "/profile",
         element: <ProfilePage/>,
+        loader: profilePageLoader
       },
       {
         path: "/profile/update",

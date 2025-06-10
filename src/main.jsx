@@ -9,9 +9,7 @@ import { MantineProvider } from '@mantine/core'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthContextProvider>
-    <MantineProvider>
     <App />
-    </MantineProvider>
     </AuthContextProvider>   
   </React.StrictMode>,
 )

@@ -1,13 +1,15 @@
-import React, { useContext, useEffect } from "react";
+import React, { Suspense, useContext, useEffect } from "react";
 
 import "./ProfilePage.scss";
 import List from "../../components/list/List";
 import Chat from "../../components/chat/Chat";
 import apiRequest from "../../lib/apiRequest";
-import { Link, useNavigate } from "react-router-dom";
+import { Await, Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 const ProfilePage = () => {
+  const data = useLoaderData();
+  console.log(data)
   const navigate = useNavigate();
 
   const { updateUser, currentUser } = useContext(AuthContext);
@@ -23,55 +25,74 @@ const ProfilePage = () => {
     }
   };
 
-
-
   return (
-    
-      <div className="profilePage">
-        <div className="details">
-          <div className="wrapper">
-            <div className="title">
-              <h1>User information</h1>
-              <Link to="/profile/update">
+    <div className="profilePage">
+      <div className="details">
+        <div className="wrapper">
+          <div className="title">
+            <h1>User information</h1>
+            <Link to="/profile/update">
               <button>Update Profile</button>
-              </Link>
-            </div>
+            </Link>
+          </div>
 
-            <div className="info">
-              <span>
-                Avatar:
-                <img src={currentUser.avatar || "noavatar.jpg"} />
-              </span>
-              <span>
-                Username: <b>{currentUser.username}</b>
-              </span>
-              <span>
-                E-mail: <b>{currentUser.email}</b>
-              </span>
-              <button onClick={handleLogout}>Logout</button>
-            </div>
+          <div className="info">
+            <span>
+              Avatar:
+              <img src={currentUser.avatar || "noavatar.jpg"} />
+            </span>
+            <span>
+              Username: <b>{currentUser.username}</b>
+            </span>
+            <span>
+              E-mail: <b>{currentUser.email}</b>
+            </span>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
 
-            <div className="title">
-              <h1>My List</h1>
-              <Link to={"/add"}>
+          <div className="title">
+            <h1>My List</h1>
+            <Link to={"/add"}>
               <button>Create New Post</button>
-              </Link>
-            </div>
-            <List />
-            <div className="title">
-              <h1>Saved List</h1>
-            </div>
-            <List />
+            </Link>
           </div>
-        </div>
-
-        <div className="chatContainer">
-          <div className="wrapper">
-            <Chat />
+          <Suspense fallback={<p>Loading...</p>}>
+            <Await
+              resolve={data?.postResponse}
+              errorElement={<p>Error loading posts</p>}
+            >
+              {(postResponse) => <List posts={postResponse.data?.userPosts} />}
+            </Await>
+          </Suspense>
+          {/* <List /> */}
+          <div className="title">
+            <h1>Saved List</h1>
           </div>
+          <Suspense fallback={<p>Loading...</p>}>
+            <Await
+              resolve={data?.postResponse}
+              errorElement={<p>Error loading posts</p>}
+            >
+              {(postResponse) => <List posts={postResponse.data?.savedPosts} />}
+            </Await>
+          </Suspense>
         </div>
       </div>
-    
+
+      <div className="chatContainer">
+        <div className="wrapper">
+        <Suspense fallback={<p>Loading...</p>}>
+            <Await
+              resolve={data?.chatResponse}
+              errorElement={<p>Error loading posts</p>}
+            >
+              {(chatResponse) => <Chat chats={chatResponse.data} />}
+            </Await>
+          </Suspense>
+          <Chat />
+        </div>
+      </div>
+    </div>
   );
 };
 
