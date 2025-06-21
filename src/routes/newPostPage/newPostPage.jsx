@@ -10,8 +10,10 @@ function NewPostPage() {
   const [value, setValue] = useState("");
   const [images, setImages] = useState([]);
   const [error, setError] = useState("");
+  const [position, setPosition] = useState(null);
+  const [showMapModal, setShowMapModal] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,18 +46,56 @@ function NewPostPage() {
           restaurant: parseInt(inputs.restaurant),
         },
       });
-      navigate("/"+res.data.id)
+      navigate("/" + res.data.id);
     } catch (err) {
       console.log(err);
-      setError(error);
+      setError("Something went wrong");
     }
+  };
+
+  const handleGetLocation = () => {
+    
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            console.log("Location access granted:", position);
+            // You can proceed with using the location here
+          },
+          (error) => {
+            if (error.code === error.PERMISSION_DENIED) {
+              alert("Please enable location services in your browser settings to continue.");
+            } else if (error.code === error.POSITION_UNAVAILABLE) {
+              alert("Location information is unavailable. Try again later.");
+            } else if (error.code === error.TIMEOUT) {
+              alert("The request to get your location timed out.");
+            } else {
+              alert("An unknown error occurred while requesting location.");
+            }
+          }
+        );
+      } else {
+        alert("Geolocation is not supported by your browser.");
+      }
+    
+    
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const coords = [pos.coords.latitude, pos.coords.longitude];
+        setPosition(coords);
+        console.log("Position:", coords);
+      },
+      (err) => {
+        console.error("Geolocation error:", err);
+      }
+    );
   };
 
   return (
     <div className="newPostPage">
       <div className="formContainer">
         <div className="wrapper">
-        <h1>Add New Post</h1>
+          <h1>Add New Post</h1>
+
           <form onSubmit={handleSubmit}>
             <div className="item">
               <label htmlFor="title">Title</label>
@@ -72,7 +112,7 @@ function NewPostPage() {
             <div className="item description">
               <label htmlFor="desc">Description</label>
               <div className="quill">
-              <ReactQuill theme="snow" onChange={setValue} value={value} />
+                <ReactQuill theme="snow" onChange={setValue} value={value} />
               </div>
             </div>
             <div className="item">
@@ -87,14 +127,28 @@ function NewPostPage() {
               <label htmlFor="bathroom">Bathroom Number</label>
               <input min={0} id="bathroom" name="bathroom" type="number" />
             </div>
+
             <div className="item">
               <label htmlFor="latitude">Latitude</label>
-              <input id="latitude" name="latitude" type="text" />
+              <input
+                id="latitude"
+                name="latitude"
+                type="text"
+                value={position ? position[0] : ""}
+                readOnly
+              />
             </div>
             <div className="item">
               <label htmlFor="longitude">Longitude</label>
-              <input id="longitude" name="longitude" type="text" />
+              <input
+                id="longitude"
+                name="longitude"
+                type="text"
+                value={position ? position[1] : ""}
+                readOnly
+              />
             </div>
+
             <div className="item">
               <label htmlFor="type">Type</label>
               <select name="type">
@@ -105,7 +159,7 @@ function NewPostPage() {
               </select>
             </div>
             <div className="item">
-              <label htmlFor="type">Property</label>
+              <label htmlFor="property">Property</label>
               <select name="property">
                 <option value="apartment">Apartment</option>
                 <option value="house">House</option>
@@ -113,7 +167,6 @@ function NewPostPage() {
                 <option value="land">Land</option>
               </select>
             </div>
-
             <div className="item">
               <label htmlFor="utilities">Utilities Policy</label>
               <select name="utilities">
@@ -147,19 +200,68 @@ function NewPostPage() {
               <input min={0} id="school" name="school" type="number" />
             </div>
             <div className="item">
-              <label htmlFor="bus">bus</label>
+              <label htmlFor="bus">Bus</label>
               <input min={0} id="bus" name="bus" type="number" />
             </div>
             <div className="item">
               <label htmlFor="restaurant">Restaurant</label>
               <input min={0} id="restaurant" name="restaurant" type="number" />
             </div>
+
             <button className="sendButton">Add</button>
-            {error && <span>error</span>}
+            {error && <span>{error}</span>}
           </form>
+
+          <div className="locationButtons">
+            <button type="button" onClick={handleGetLocation}>
+              Get Location
+            </button>
+
+            {position && (
+              <>
+                <button
+                  type="button"
+                  onClick={() =>
+                    window.open(
+                      `https://www.google.com/maps?q=${position[0]},${position[1]}`,
+                      "_blank"
+                    )
+                  }
+                >
+                  Open in Google Maps
+                </button>
+
+                <button type="button" onClick={() => setShowMapModal(true)}>
+                  View on Map
+                </button>
+              </>
+            )}
+          </div>
+
+          {/* Map Modal */}
+          {showMapModal && position && (
+            <div className="mapModal">
+              <div className="mapContent">
+                <button
+                  className="closeButton"
+                  onClick={() => setShowMapModal(false)}
+                >
+                  Close
+                </button>
+                <iframe
+                  width="100%"
+                  height="450"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src={`https://www.google.com/maps?q=${position[0]},${position[1]}&output=embed`}
+                ></iframe>
+              </div>
+            </div>
+          )}
         </div>
       </div>
-      
+
       <div className="sideContainer">
         {images.map((image, index) => (
           <img src={image} key={index} alt="" />

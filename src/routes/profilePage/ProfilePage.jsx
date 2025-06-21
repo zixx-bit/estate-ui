@@ -9,10 +9,11 @@ import { AuthContext } from "../../context/AuthContext";
 
 const ProfilePage = () => {
   const data = useLoaderData();
-  console.log(data)
+  // console.log(data)
   const navigate = useNavigate();
 
   const { updateUser, currentUser } = useContext(AuthContext);
+  // console.log(currentUser)
 
   const handleLogout = async () => {
     try {
@@ -84,12 +85,12 @@ const ProfilePage = () => {
         <Suspense fallback={<p>Loading...</p>}>
             <Await
               resolve={data?.chatResponse}
-              errorElement={<p>Error loading posts</p>}
+              errorElement={<p>Error loading chats</p>}
             >
               {(chatResponse) => <Chat chats={chatResponse.data} />}
             </Await>
           </Suspense>
-          <Chat />
+          {/* <Chat /> */}
         </div>
       </div>
     </div>

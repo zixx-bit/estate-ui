@@ -24,9 +24,9 @@ function Navbar() {
                 <span>LamaEstate</span>
             </a>
             <a href="/">Home</a>
-            <a href="/">About</a>
+            <a href="/list">Properties</a>
+            <a href="/profile">Profile</a>
             <a href="/">Contact</a>
-            <a href="/">Agents</a>
             </div>
 
             <div className="right">

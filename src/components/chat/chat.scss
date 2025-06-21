@@ -21,7 +21,30 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            cursor: pointer;    
+            cursor: pointer;  
+             
+            .avatarStatusWrapper {
+                position: relative;
+                display: inline-block;
+              
+                img {
+                  width:30px;
+                  height: 30px;
+                  border-radius: 50%;
+                }
+              
+                .onlineDot {
+                  position: absolute;
+                  bottom: 0;
+                  right: 0;
+                  width: 10px;
+                  height: 10px;
+                  background-color: green;
+                  border: 2px solid white;
+                  border-radius: 50%;
+                }
+              }
+              
 
         img {
             width: 40px;
